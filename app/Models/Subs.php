@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Subs extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'website_id',
+        'email',
+    ];
 }

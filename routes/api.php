@@ -19,6 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/websites', [SubsController::class, 'newWebsite']);
-Route::post('/websites/{id}/posts', [SubsController::class, 'newPost']);
-Route::post('/websites/{id}/subscribe', [SubsController::class, 'doSubscribe']);
+Route::get('/websites', [SubsController::class, 'allWebsites']);
+Route::get('/websites/{id}/posts', [SubsController::class, 'websitesPosts']);
+Route::post('/websites/{id}/sub', [SubsController::class, 'doSubscribe']);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendNotifications;
+use App\Models\Post;
 use App\Models\Subs;
 use App\Models\Website;
 use Illuminate\Http\Request;
@@ -9,6 +11,22 @@ use Illuminate\Http\Request;
 class SubsController extends Controller
 {
     //
+
+    public function allWebsites(Request $request)
+    {
+        $websites = Website::all()->toArray();
+        return response()->json($websites, 201);
+    }
+
+    public function websitesPosts(Request $request, $id)
+    {
+        $posts = Post::where("website_id", $id)->get();
+        return response()->json($posts, 201);
+    }
+
+
+
+    // we don't need it right now
     public function newWebsite(Request $request)
     {
         $validated = $request->validate(['name' => 'required|string|unique:websites']);
@@ -16,6 +34,7 @@ class SubsController extends Controller
         return response()->json($website, 201);
     }
 
+    // we don't need it right now
     public function newPost(Request $request, $websiteId)
     {
         $title = $request->input('title');
@@ -35,7 +54,7 @@ class SubsController extends Controller
     public function doSubscribe(Request $request, $websiteId)
     {
         $validated = $request->validate([
-            'email' => 'required|email|unique:subscriptions',
+            'email' => 'required|email|unique:subs',
         ]);
 
         $subscription = Subs::create([
