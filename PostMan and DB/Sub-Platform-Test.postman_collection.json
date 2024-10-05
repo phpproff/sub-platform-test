@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "310c387b-cb1a-4de7-a72f-ef237de95be4",
+		"name": "Sub-Platform-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9597"
+	},
+	"item": [
+		{
+			"name": "website_posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "http://127.0.0.1:8000/api/websites/2/posts"
+			},
+			"response": []
+		},
+		{
+			"name": "subscribe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hamdan@abutaima.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://127.0.0.1:8000/api/websites/2/sub"
+			},
+			"response": []
+		},
+		{
+			"name": "websites",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "http://127.0.0.1:8000/api/websites"
+			},
+			"response": []
+		}
+	]
+}
